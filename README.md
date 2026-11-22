@@ -23,13 +23,13 @@ Rebuild after changing `planner/`:
    git add .
    git commit -m "Static Prompt Studio"
    git branch -M main
-   git remote add origin https://github.com/<user>/prompt-studio.git
+   git remote add origin https://github.com/sgp-hub/prompt-studio.git
    git push -u origin main
    ```
 
 3. On GitHub: **Settings → Pages → Build and deployment**.
    Source: **Deploy from a branch**. Branch: **main**, folder: **/ (root)**. Save.
-4. Wait for the green check, then open `https://<user>.github.io/prompt-studio/`.
+4. Wait for the green check, then open `https://sgp-hub.github.io/prompt-studio/`.
    The planner should load, generate a package, save it, reload, and reopen it.
 
 ## Embed in Google Sites
@@ -39,7 +39,7 @@ Rebuild after changing `planner/`:
 
    ```html
    <iframe
-     src="https://<user>.github.io/prompt-studio/"
+     src="https://sgp-hub.github.io/prompt-studio/"
      title="Prompt Studio"
      style="width:100%;height:1500px;border:0"
      loading="lazy"
