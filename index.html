@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Prompt Studio</title>
+<link rel="stylesheet" href="style.css">
+<style>html,body{margin:0;min-height:100%}body{background:#ecefe9}</style>
+</head>
+<body>
+<main id="studio"><header><div class="identity"><div class="logo" aria-hidden="true">✳</div><div><h1>Local Prompt Studio</h1><small>Your Personal Prompt Engineer</small></div></div><button id="theme" aria-label="Switch theme"></button></header>
+<div id="basicToolbar" hidden><div id="basicModes"></div><button id="reset" type="button">Clear/Reset</button></div>
+<div class="grid"><article><nav aria-label="Planning steps"><button id="briefTab">Brief</button><span>›</span><button id="reviewTab">Review &amp; submit</button></nav>
+<section id="brief"><h2>What’s on your mind?</h2>
+<span id="modeHome" hidden></span><div class="modeRow" id="modes"></div><div id="basicTools" hidden><span>TOOL</span><strong>CHATGPT, CLAUDE, ANTIGRAVITY, DEEPSEEK, GROK</strong></div><label>Task<select id="task"></select></label><p class="hint" id="planPreview"></p>
+<label>What do you want to accomplish?<textarea id="goal" rows="2" placeholder="Describe the outcome in your own words." required></textarea></label>
+<label>What must the result include?<input id="result" required></label>
+<details><summary>Materials, tools and constraints</summary>
+<label>Reference text or links<textarea id="material" rows="3"></textarea></label><label>Add files<input type="file" multiple id="files"></label><small>Text files are included in the package. Other formats are listed for attachment in the destination.</small><p id="fileList"></p>
+<label>Existing apps or preferred tools<input id="tools" placeholder="Names separated by commas"></label>
+<label>Anything to avoid?<input id="avoid"></label><label>Audience, intended use or background<input id="context"></label><label>Example of the desired result<textarea id="example" rows="2"></textarea></label></details>
+<div id="connections" hidden><h3>Workflow apps</h3><div class="three"><label>Trigger source<input id="sourceApp" placeholder="Source app or file"></label><label>Workflow runtime<input id="runner" value="Node-RED"></label><label>Destination<input id="targetApp" placeholder="Destination app"></label></div></div>
+<details id="follow"><summary id="followTitle">Task details</summary><div id="special"></div><label>Project workspace or location<input id="workspace" placeholder="Folder, project or document"></label></details>
+<button class="primary" id="propose">Review &amp; submit →</button></section>
+<section id="review" hidden><h2>Review &amp; submit</h2><p class="hint">Edit the proposed scope, tools and checks before approving the package.</p><div id="reviewFields"></div><h3>Tool placement</h3><div id="appRows"></div><button id="addApp">Add a tool</button><h3>Stage responsibilities</h3><div id="stageRows"></div>
+<label class="confirm"><input id="approve" type="checkbox">I approve this scope, approach and tool selection.</label><p class="hint" id="reviewNext">Check the plan, then tick the approval box.</p><button class="primary" id="generate">Generate package →</button></section>
+<span id="packageHome" hidden></span><section id="package" hidden><h2>On a silver platter</h2><label>Editable execution prompt<textarea id="prompt" rows="15"></textarea></label><div class="actions"><button id="copyPrompt" class="primary">Copy prompt</button><button id="export">Download Markdown</button></div>
+<h3>Where and how to use</h3><p id="usage"></p><p class="hint" id="packageNext">Next: copy the prompt into Ollama, then update the tracker as each stage finishes.</p><button id="save">Save version with progress</button></section>
+<p role="status" id="message"></p></article>
+<aside><section class="guide" id="guide"><h2>How it works</h2><ol><li>Describe the goal and pick the matching task.</li><li>Review and approve the proposed plan.</li><li>Generate the package and copy it into Ollama.</li><li>Update the tracker as each stage finishes.</li></ol><p class="hint">The app plans and writes the package. It does not run the task.</p></section><section class="track" id="trackPanel" hidden><h2>Stage tracker</h2><p id="trackHint">Review a brief to see its stages.</p><div id="trackRows"></div></section><section class="library"><h3>Saved packages</h3><label>Version<select id="library"></select></label><button id="open">Reopen version</button></section></aside></div></main>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>
